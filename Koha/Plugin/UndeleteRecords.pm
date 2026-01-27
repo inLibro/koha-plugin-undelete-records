@@ -40,7 +40,7 @@ our $metadata = {
 	author          => 'David Bourgault, Olivier Vézina, William Lavoie, Hammat Wele, Noah Tremblay',
 	description     => 'Undelete records',
 	date_authored   => '2017-11-15',
-	date_updated    => '2025-09-15',
+	date_updated    => '2026-01-27',
 	minimum_version => '22.05',
 	maximum_version => undef,
 	version         => $VERSION,
@@ -74,11 +74,11 @@ sub tool {
 	elsif ( $cgi->param('action') eq 'merge' and $cgi->param('confirm') eq 'confirm' ) {
         my $target               = $cgi->param('target');
         my $Type                 = $cgi->param('Type');
-        my $selected_itemnumbers = $cgi->param('selected_itemnumbers[]');
-		$self->fusion(
+        my @selected_itemnumbers = $cgi->multi_param('selected_itemnumbers[]');
+        $self->fusion(
             $target,
             $Type,
-            $selected_itemnumbers,
+            @selected_itemnumbers,
 		);
 	}
 	else {
@@ -421,7 +421,7 @@ sub fusion {
 
     my $search_engine = C4::Context->preference("SearchEngine");
 
-    # Retrieve all biblionumbers
+    # Retrieve selected biblionumbers
     my @biblio_ids = @selected_biblionumbers;
 
     # Fetch all records by looping through the biblionumbers
@@ -451,7 +451,7 @@ sub fusion {
     elsif ($search_engine eq 'Elasticsearch') {
         my $elastic_indexer = Koha::SearchEngine::Elasticsearch::Indexer->new({ index => $Koha::SearchEngine::BIBLIOS_INDEX});
         # Reindex the retrieved records
-        $elastic_indexer->update_index(\@biblio_ids, \@records);
+        $elastic_indexer->update_index(\@biblio_ids);
     }
     else {
         die "Unknown search engine: $search_engine. Unable to reindex.";
