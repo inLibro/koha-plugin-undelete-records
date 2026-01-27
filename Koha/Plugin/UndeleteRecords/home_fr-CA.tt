@@ -134,9 +134,9 @@
 					[% END %]
 				[% ELSE %]
 					[% IF  selected_count.$counter > 1 %]
-						<p>[% selected_count.$counter %] notices restaurés pour la notice <a href="../catalogue/detail.pl?biblionumber=[% selected_biblionumbers.$counter %]" target="_blank">[% selected_biblionumbers.$counter %].</a></p>
+						<p>[% selected_count.$counter %] notices restaurées <a href="../catalogue/detail.pl?biblionumber=[% selected_biblionumbers.$counter %]" target="_blank">[% selected_biblionumbers.$counter %].</a></p>
 					[% ELSE %]
-						<p>[% selected_count.$counter %] notice restauré <a href="../catalogue/detail.pl?biblionumber=[% selected_biblionumbers.$counter %]" target="_blank">[% selected_biblionumbers.$counter %].</a></p>
+						<p>[% selected_count.$counter %] notice restaurée <a href="../catalogue/detail.pl?biblionumber=[% selected_biblionumbers.$counter %]" target="_blank">[% selected_biblionumbers.$counter %].</a></p>
 					[% END %]
 				[% END %]
 				[% counter = counter + 1 %]

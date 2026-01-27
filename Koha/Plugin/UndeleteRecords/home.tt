@@ -128,15 +128,15 @@
 			[% WHILE counter < selected_biblionumbers.size() %]
 				[% IF type == "Items"%]
 					[% IF  selected_count.$counter > 1 %]
-						<p>[% selected_count.$counter %] exemplaires restaurés pour la notice <a href="../catalogue/detail.pl?biblionumber=[% selected_biblionumbers.$counter %]" target="_blank">[% selected_biblionumbers.$counter %].</a></p>
+						<p>[% selected_count.$counter %] items restored on record <a href="../catalogue/detail.pl?biblionumber=[% selected_biblionumbers.$counter %]" target="_blank">[% selected_biblionumbers.$counter %].</a></p>
 					[% ELSE %]
-						<p>[% selected_count.$counter %] exemplaire restauré pour la notice <a href="../catalogue/detail.pl?biblionumber=[% selected_biblionumbers.$counter %]" target="_blank">[% selected_biblionumbers.$counter %].</a></p>
+						<p>[% selected_count.$counter %] item restored on record <a href="../catalogue/detail.pl?biblionumber=[% selected_biblionumbers.$counter %]" target="_blank">[% selected_biblionumbers.$counter %].</a></p>
 					[% END %]
 				[% ELSE %]
 					[% IF  selected_count.$counter > 1 %]
-						<p>[% selected_count.$counter %] notices restaurés pour la notice <a href="../catalogue/detail.pl?biblionumber=[% selected_biblionumbers.$counter %]" target="_blank">[% selected_biblionumbers.$counter %].</a></p>
+						<p>[% selected_count.$counter %] records restored <a href="../catalogue/detail.pl?biblionumber=[% selected_biblionumbers.$counter %]" target="_blank">[% selected_biblionumbers.$counter %].</a></p>
 					[% ELSE %]
-						<p>[% selected_count.$counter %] notice restauré <a href="../catalogue/detail.pl?biblionumber=[% selected_biblionumbers.$counter %]" target="_blank">[% selected_biblionumbers.$counter %].</a></p>
+						<p>[% selected_count.$counter %] record restored <a href="../catalogue/detail.pl?biblionumber=[% selected_biblionumbers.$counter %]" target="_blank">[% selected_biblionumbers.$counter %].</a></p>
 					[% END %]
 				[% END %]
 				[% counter = counter + 1 %]
