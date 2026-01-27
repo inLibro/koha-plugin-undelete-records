@@ -240,8 +240,9 @@ sub fusion {
         push(@selected_count, $retreived_items[1]);
     }
     $template->param(
+        type                   => $Type,
         selected_biblionumbers => \@selected_biblionumbers,
-        selected_count => \@selected_count
+        selected_count         => \@selected_count
     );
 
     if($Type eq "Items"){
